@@ -1,16 +1,19 @@
-import { getPriceInPounds } from '../utils/currencyUtils';
+import { penniesToPounds } from '../utils/currencyUtils';
+
 /**
  * List of products available to be added to the cart
  * @param {*} list - array of products 
- * @param {*} addToCart - cart state to be updated
+ * @param {*} cart - products in cart
+ * @param {*} setCart - function to update cart 
  * @returns a list of products
  */
 function ProductsList({ list, cart, setCart }) { 
+
     // get item information and add it to cart
     async function addToCart(id) {
         const itemInCart = isItemInCart(id);
         
-        // if item already in cart, update its quantity
+        // if item already in cart, only update its quantity
         if (itemInCart) {
             updateCart(itemInCart);
         }
@@ -36,7 +39,7 @@ function ProductsList({ list, cart, setCart }) {
     }
 
     // TODO: add this function to an apiUtils
-    // get data for a single product
+    // fetch data of a single product from API 
     function getProductById(id) {
         const url = `/products/${id}`;
         const init = {
@@ -58,17 +61,15 @@ function ProductsList({ list, cart, setCart }) {
     return (
         <section>
             <h2>Please choose your items:</h2>
-            <ul>
-                {list.map( product => {
-                    return (          
-                    <li key={product.id}>
-                        <p>{product.name}</p>
-                        <p>&#163; {getPriceInPounds(product.price)}</p>
-                        <button onClick={() => addToCart(product.id)}>I want this</button>
-                    </li>
-                    )
-                })}
-            </ul>
+            {list.map( product => {
+                return (          
+                <div key={product.id}>
+                    <p>{product.name}</p>
+                    <p>&#163; {penniesToPounds(product.price)}</p>
+                    <button onClick={() => addToCart(product.id)}>I want this</button>
+                </div>
+                )
+            })}
         </section>        
     )
 }
