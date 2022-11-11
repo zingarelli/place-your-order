@@ -6,7 +6,7 @@ export async function addToCart(cart, id) {
     
     // if item already in cart, only update its quantity
     if (itemInCart) {
-        return updateCart(cart, itemInCart);
+        return updateCart(cart, id);
     }
     else {
         const item = await getProductById(id);
@@ -15,12 +15,17 @@ export async function addToCart(cart, id) {
     } 
 }
 
+export function removeFromCart(cart, id) {
+    return cart.filter(item => item.id !== id);
+}
+
 // update the quantity of an item in the cart
-export function updateCart(cart, item) {
+export function updateCart(cart, id, increase=true) {
     return cart.map(element => {
-        if (element.id === item.id) {
-            element.qty += 1;                
+        if (element.id === id) {
+            increase ? element.qty += 1 : element.qty -= 1;                
         }
+        
         return element;
     });
 }
