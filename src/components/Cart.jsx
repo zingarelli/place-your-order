@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { penniesToPounds } from '../utils/currencyUtils';
-import { calculateOrder } from '../utils/cartUtils';
+import { calculateOrder } from '../utils/orderUtils';
 
 function Cart({ list }) {
 
@@ -22,7 +22,9 @@ function Cart({ list }) {
                 <div key={item.id}>
                     <p>{item.name}</p>
                     <p>&#163; {penniesToPounds(item.price)}</p>
+                    <button>-</button>
                     <p>{item.qty}</p>
+                    <button>+</button>
                 </div>
             ))}
             {list.length > 0 && (

@@ -1,3 +1,4 @@
+import { addToCart } from '../utils/cartUtils';
 import { penniesToPounds } from '../utils/currencyUtils';
 
 /**
@@ -7,66 +8,26 @@ import { penniesToPounds } from '../utils/currencyUtils';
  * @param {*} setCart - function to update cart 
  * @returns a list of products
  */
-function ProductsList({ list, cart, setCart }) { 
-
-    // get item information and add it to cart
-    async function addToCart(id) {
-        const itemInCart = isItemInCart(id);
-        
-        // if item already in cart, only update its quantity
-        if (itemInCart) {
-            updateCart(itemInCart);
-        }
-        else {
-            const item = await getProductById(id);
-            item.qty = 1; 
-            setCart([...cart, item]);
-        } 
-    }
-
-    // update the quantity of an item in the cart
-    function updateCart(item) {
-        setCart(cart.map(element => {
-            if (element.id === item.id) {
-                element.qty += 1;                
-            }
-            return element;
-        }));
-    }
-
-    function isItemInCart(id) {
-        return cart.find((element) => element.id === id);
-    }
-
-    // TODO: add this function to an apiUtils
-    // fetch data of a single product from API 
-    function getProductById(id) {
-        const url = `/products/${id}`;
-        const init = {
-          method: 'GET', 
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        };
-        const request = new Request(url, init);
+function ProductsList({ list, cart, setCart }) {
     
-        const product = fetch(request)
-          .then(resp => resp.json())
-          .then(data => data)
-          .catch(err => console.log(err));
-    
-        return product;
+    function handleClick(id) {
+        addToCart(cart, id)
+            .then(cartUpdated => setCart(cartUpdated))
+            .catch(err => console.log(err));
     }
-    
+
     return (
         <section>
             <h2>Please choose your items:</h2>
+            {list.length === 0 && (
+                <p>There are no items to show.</p>
+            )}
             {list.map( product => {
                 return (          
                 <div key={product.id}>
                     <p>{product.name}</p>
                     <p>&#163; {penniesToPounds(product.price)}</p>
-                    <button onClick={() => addToCart(product.id)}>I want this</button>
+                    <button onClick={() => handleClick(product.id)}>I want this</button>
                 </div>
                 )
             })}
