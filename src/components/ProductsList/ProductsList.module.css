@@ -1,0 +1,29 @@
+.productsList {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2em;
+}
+
+.productCard {
+    background-color: var(--secondary-bg);
+    font-weight: 600;
+    padding: 1em;
+    width: 130px;
+    border-radius: 10px;    
+    box-shadow: 0 0 5px 3px var(--border-color);
+    display: flex;
+    flex-direction: column;
+    row-gap: .7em;
+}
+
+.productBtn {
+    font-weight: 600;
+}
+
+.productBtn:hover {
+    background-color: var(--button-bg-hover);
+    color: var(--main-color);
+}

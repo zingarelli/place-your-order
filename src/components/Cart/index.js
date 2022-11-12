@@ -1,4 +1,4 @@
-import { removeFromCart, updateCart } from '../utils/cartUtils';
+import { removeFromCart, updateCart } from '../../utils/cartUtils';
 
 function Cart({ cart, setCart }) {
 

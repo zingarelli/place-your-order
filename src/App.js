@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import './App.css';
-import ProductsList from "./components/ProductsList";
-import Cart from "./components/Cart";
 import { getProducts } from "./utils/apiUtils";
-import Checkout from "./components/Checkout/Checkout";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import ProductsList from "./components/ProductsList";
 
 function App() {
   const [productsList, setProductsList] = useState([]);
@@ -18,20 +18,23 @@ function App() {
   }, []);
 
   // don't display checkout if the user cancels the order
-  function handleCancelCheckout() { setCheckoutVisible(false) }
+  function handleCloseCheckout() { setCheckoutVisible(false) }
+
+  // clear the cart once an order is finished
+  function handleSuccessfulOrder() { setCart([]) }
 
   return (
     <div className="App">
       <div className="order">
         <ProductsList products={productsList} cart={cart} setCart={setCart} />
-        <div>
+        <div className="cart">
           <Cart cart={cart} setCart={setCart} />
           {cart.length > 0 && <button onClick={() => setCheckoutVisible(true)}>Checkout</button>}
         </div>
       </div>
       {checkoutVisible && (
         <div className="checkout">
-          <Checkout cart={cart} onclose={handleCancelCheckout} />
+          <Checkout cart={cart} closeCheckout={handleCloseCheckout} clearCart={handleSuccessfulOrder}  />
         </div>
       )}
     </div>
