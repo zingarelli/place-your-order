@@ -27,13 +27,13 @@ function App() {
     <div className="App">
       <div className="order">
         <ProductsList products={productsList} cart={cart} setCart={setCart} />
-        <div className="cart">
+        <aside className="cart">
           <Cart cart={cart} setCart={setCart} />
-          {cart.length > 0 && <button onClick={() => setCheckoutVisible(true)}>Checkout</button>}
-        </div>
+          {cart.length > 0 && <button className="cartCheckoutButton" onClick={() => setCheckoutVisible(true)}>Checkout</button>}
+        </aside>
       </div>
       {checkoutVisible && (
-        <div className="checkout">
+        <div className="checkoutModal">
           <Checkout cart={cart} closeCheckout={handleCloseCheckout} clearCart={handleSuccessfulOrder}  />
         </div>
       )}
