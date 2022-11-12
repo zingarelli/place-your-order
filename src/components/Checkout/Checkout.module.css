@@ -3,17 +3,72 @@
     padding: 3em;
     background-color: #fa7c42;
     border: 2px solid #ff641d;
+    font-size: 1.2em;
     width: 70%;
     position: fixed;
     /* set modal to the center of the screen */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+.checkoutMessage{
+    margin-bottom: 1em;
+}
+
+.checkoutList, 
+.checkoutValues {
+    margin: 2em auto;
+    max-width: 250px;
+}
+
+.checkoutItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkoutItem > p {
+    margin-bottom: .6em;;
+}
+
+.checkoutItem > p > span {
+    margin-right: .5em
+}
+
+.checkoutValues {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    justify-items: end;
+    row-gap: .5em;
+}
+
+.checkoutDiscount {
+    color: #a2faa2
+}
+
+
+.checkoutPayable {
+    font-weight: 600;
 }
 
 .closeModal {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.checkoutBtnContainer {
+    display: flex;
+    justify-content: center;
+    column-gap: 2.5em;
+}
+
+.checkoutBtn {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.checkoutBtn:hover {
+    background-color: var(--button-bg-hover);
+    color: var(--main-color);
 }

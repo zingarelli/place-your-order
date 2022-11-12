@@ -29,27 +29,34 @@ function Checkout({ cart, closeCheckout, clearCart }) {
         <section className={styles.container}>
             {showSuccessMsg && (
                 <>
-                <p>Your order has been sent. Thank you!</p>
-                <p>This window will close automatically.</p>
+                <p className={styles.checkoutMessage}>Your order has been sent. Thank you!</p>
+                <p className={styles.checkoutMessage}>This window will close automatically.</p>
                 </>
             )}
             {cart.length > 0 && (
                 <>
-                <h2>Please verify your order</h2>  
-                {cart.map(item => (
-                    <div key={item.id}>
-                        <p>{item.qty}x {item.name} <span>&#163; {penniesToPounds(item.price*item.qty)}</span></p>
-                        <p></p>
-                    </div>
-                ))}
-                <div>
-                    <p>Total: &#163;{penniesToPounds(orderValues.grossValue)}</p>
-                    <p>You save: &#163;{penniesToPounds(orderValues.discount)}</p>
-                    <p>Total payable: &#163;{(orderValues.netValue)}</p>
+                <h2>Please review your order</h2>  
+                <div className={styles.checkoutList}>
+                    {cart.map(item => (
+                        <div key={item.id} className={styles.checkoutItem} >
+                            <p><span>{item.qty}x</span>{item.name}</p>
+                            <p>&#163; {penniesToPounds(item.price*item.qty)}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.checkoutValues}>
+                    <p>Total:</p>
+                    <p>&#163;{penniesToPounds(orderValues.grossValue)}</p>
+                    <p className={styles.checkoutDiscount}>You save:</p>
+                    <p className={styles.checkoutDiscount}>&#163;{penniesToPounds(orderValues.discount)}</p>
+                    <p className={styles.checkoutPayable}>Total payable:</p>
+                    <p className={styles.checkoutPayable}>&#163;{(orderValues.netValue)}</p>
                 </div>
                 <button className={styles.closeModal} onClick={closeCheckout}>X</button>
-                <button onClick={addOrder}>Confirm</button>
-                <button onClick={closeCheckout}>Cancel</button>
+                <div className={styles.checkoutBtnContainer}>
+                    <button className={styles.checkoutBtn} onClick={addOrder}>Confirm</button>
+                    <button className={styles.checkoutBtn} onClick={closeCheckout}>Modify order</button>
+                </div>
                 </>
             )}
         </section>
