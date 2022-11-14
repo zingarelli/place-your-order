@@ -5,6 +5,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import ProductsList from "./components/ProductsList";
 
+// Main component to run the application
 function App() {
   const [productsList, setProductsList] = useState([]);
   const [cart, setCart] = useState([]);
@@ -17,7 +18,7 @@ function App() {
       .catch(err => console.log(err))
   }, []);
 
-  // don't display checkout if the user cancels the order
+  // hide checkout modal if the user decides to modify the order
   function handleCloseCheckout() { setCheckoutVisible(false) }
 
   // clear the cart once an order is finished

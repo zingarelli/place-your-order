@@ -1,8 +1,8 @@
-2022-11-14 15:17:14.332 Verbose logging enabled
+2022-11-14 18:37:04.575 Verbose logging enabled
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-2022-11-14 15:17:15.631 Verbose logging enabled
+2022-11-14 18:37:05.921 Verbose logging enabled
  /$$      /$$ /$$                     /$$      /$$                     /$$      
 | $$  /$ | $$|__/                    | $$$    /$$$                    | $$      
 | $$ /$$$| $$ /$$  /$$$$$$   /$$$$$$ | $$$$  /$$$$  /$$$$$$   /$$$$$$$| $$   /$$
@@ -17,7 +17,53 @@ enable-browser-proxying:      false
 no-request-journal:           false
 verbose:                      true
 
-2022-11-14 15:17:17.377 Request received:
+2022-11-14 18:37:25.679 
+                                               Request was not matched
+                                               =======================
+
+-----------------------------------------------------------------------------------------------------------------------
+| Closest stub                                             | Request                                                  |
+-----------------------------------------------------------------------------------------------------------------------
+                                                           |
+GET                                                        | GET
+/products                                                  | /favicon.ico                                        <<<<< URL does not match
+                                                           |
+                                                           |
+-----------------------------------------------------------------------------------------------------------------------
+
+2022-11-14 18:37:25.679 Request received:
+127.0.0.1 - GET /favicon.ico
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [no-cors]
+sec-fetch-site: [same-origin]
+Accept: [image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [image]
+
+
+
+Matched response definition:
+(no response definition configured)
+
+Response:
+HTTP/1.1 404
+(no headers)
+
+
+2022-11-14 18:37:25.691 Request received:
 127.0.0.1 - GET /products
 
 Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
@@ -59,7 +105,8 @@ Access-Control-Allow-Origin: [http://localhost:3000]
 
 [{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2022-11-14 15:17:17.403 Request received:
+2022-11-14 18:37:25.701 Received request to /not-matched with body 
+2022-11-14 18:37:25.727 Request received:
 127.0.0.1 - GET /products
 
 Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
@@ -101,4 +148,861 @@ Access-Control-Allow-Origin: [http://localhost:3000]
 
 [{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
 
-2022-11-14 15:17:25.797 Received request to /shutdown with body 
+2022-11-14 18:37:29.339 Request received:
+127.0.0.1 - GET /products/Dwt5F7KAhi
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099,\"promotions\":[{\"id\":\"ibt3EEYczW\",\"type\":\"QTY_BASED_PRICE_OVERRIDE\",\"required_qty\":2,\"price\":1799}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099,"promotions":[{"id":"ibt3EEYczW","type":"QTY_BASED_PRICE_OVERRIDE","required_qty":2,"price":1799}]}
+
+2022-11-14 18:37:29.612 Request received:
+127.0.0.1 - GET /products/Dwt5F7KAhi
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099,\"promotions\":[{\"id\":\"ibt3EEYczW\",\"type\":\"QTY_BASED_PRICE_OVERRIDE\",\"required_qty\":2,\"price\":1799}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099,"promotions":[{"id":"ibt3EEYczW","type":"QTY_BASED_PRICE_OVERRIDE","required_qty":2,"price":1799}]}
+
+2022-11-14 18:37:33.859 Request received:
+127.0.0.1 - GET /products/4MB7UfpTQs
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199,\"promotions\":[]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199,"promotions":[]}
+
+2022-11-14 18:37:35.876 Request received:
+127.0.0.1 - GET /products/C8GDyLrHJb
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
+
+2022-11-14 18:41:52.784 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 18:41:52.793 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 18:58:14.852 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 18:59:50.845 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:14:29.238 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:14:29.243 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:14:30.157 Request received:
+127.0.0.1 - GET /products/C8GDyLrHJb
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
+
+2022-11-14 19:14:31.328 Request received:
+127.0.0.1 - GET /products/4MB7UfpTQs
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199,\"promotions\":[]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199,"promotions":[]}
+
+2022-11-14 19:16:44.856 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:57:12.136 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:57:12.150 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 19:57:13.485 Request received:
+127.0.0.1 - GET /products/Dwt5F7KAhi
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099,\"promotions\":[{\"id\":\"ibt3EEYczW\",\"type\":\"QTY_BASED_PRICE_OVERRIDE\",\"required_qty\":2,\"price\":1799}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099,"promotions":[{"id":"ibt3EEYczW","type":"QTY_BASED_PRICE_OVERRIDE","required_qty":2,"price":1799}]}
+
+2022-11-14 19:57:16.696 Request received:
+127.0.0.1 - GET /products/PWWe3w1SDU
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999,\"promotions\":[{\"id\":\"ZRAwbsO2qM\",\"type\":\"BUY_X_GET_Y_FREE\",\"required_qty\":2,\"free_qty\":1}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999,"promotions":[{"id":"ZRAwbsO2qM","type":"BUY_X_GET_Y_FREE","required_qty":2,"free_qty":1}]}
+
+2022-11-14 19:57:18.141 Request received:
+127.0.0.1 - GET /products/4MB7UfpTQs
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199,\"promotions\":[]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199,"promotions":[]}
+
+2022-11-14 19:57:29.155 Request received:
+127.0.0.1 - GET /products/C8GDyLrHJb
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
+
+2022-11-14 19:58:00.992 Request received:
+127.0.0.1 - GET /products/PWWe3w1SDU
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999,\"promotions\":[{\"id\":\"ZRAwbsO2qM\",\"type\":\"BUY_X_GET_Y_FREE\",\"required_qty\":2,\"free_qty\":1}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999,"promotions":[{"id":"ZRAwbsO2qM","type":"BUY_X_GET_Y_FREE","required_qty":2,"free_qty":1}]}
+
+2022-11-14 19:58:03.073 Request received:
+127.0.0.1 - GET /products/C8GDyLrHJb
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499,\"promotions\":[{\"id\":\"Gm1piPn7Fg\",\"type\":\"FLAT_PERCENT\",\"amount\":10}]}",
+  "headers" : {
+    "Content-Type" : "application/json"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+
+{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499,"promotions":[{"id":"Gm1piPn7Fg","type":"FLAT_PERCENT","amount":10}]}
+

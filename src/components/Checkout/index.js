@@ -3,6 +3,14 @@ import { penniesToPounds } from '../../utils/currencyUtils';
 import { calculateOrder } from '../../utils/orderUtils';
 import styles from './Checkout.module.css'
 
+/**
+ * Modal that shows items selected by the user and total values of the order
+ * (total order, discounts and total payable)
+ * @param {*} cart - array of products in cart
+ * @param {*} closeCheckout - function to close the modal 
+ * @param {*} clearCart - function to empty the cart (when the user confirms the order)
+ * @returns a checkout component
+ */
 function Checkout({ cart, closeCheckout, clearCart }) {
     const [showSuccessMsg, setShowSuccessMsg] = useState(false);
     const [orderValues, setOrderValues] = useState({
@@ -11,12 +19,12 @@ function Checkout({ cart, closeCheckout, clearCart }) {
         netValue: 0
     });
 
-    // calculate order's total whenever list of items in cart change
+    // calculate order's total whenever list of items in cart changes
     useEffect(() => {
         setOrderValues(calculateOrder(cart));
     }, [cart])
 
-    // for now, just show a message and close the modal
+    // for now, just show a message, empty the cart and close the modal
     function addOrder(){
         setShowSuccessMsg(true);
         clearCart();

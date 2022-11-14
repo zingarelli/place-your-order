@@ -1,8 +1,11 @@
 const URL = '/products';
 
-// get products data from API and return it as an array
+/**
+ * Get products data from API
+ * @returns an array of products
+ */
 export async function getProducts() {
-    // wiremock: add "proxy" to package.json to avoid CORS policy problems)
+    // wiremock: add "proxy" to package.json to avoid CORS policy problems
     const url = URL;
     const init = {
         method: 'GET',
@@ -18,7 +21,11 @@ export async function getProducts() {
         .catch(err => console.log(err));
 }
 
-// fetch data of a single product from API and return it as an object
+/**
+ * Fetch data of a single product from API
+ * @param {*} - id of the product
+ * @returns an object with product information
+ */
 export async function getProductById(id) {
     const url = `${URL}/${id}`;
     const init = {

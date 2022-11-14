@@ -1,10 +1,14 @@
 import { penniesToPounds } from "./currencyUtils";
 
-// get total value, discounts and net value for the order
+/**
+ * Calculate total value, discounts and net value for items in the cart
+ * @param {*} cart - array of products in cart
+ * @returns total value, discount and net value
+ */
 export function calculateOrder(cart){
     let grossValue = 0;
     let discount = 0;
-    // TODO: update total and discount for items that've changed, instead of recalculating the entire list
+    // TODO: update total and discount only for items that've changed, instead of recalculating the entire list
     cart.forEach(item => {
         grossValue += item.price * item.qty;
         discount += calculateDiscounts(item);
@@ -14,7 +18,11 @@ export function calculateOrder(cart){
     return {grossValue, discount, netValue};
 }
 
-// accumulate discounts of every available promotion for the item
+/**
+ * Sum discount values of every available promotion for an item
+ * @param {*} item - a product in cart
+ * @returns discount price
+ */
 function calculateDiscounts(item) {
     let discount = 0;
     item.promotions.forEach(promotion => {
@@ -23,7 +31,12 @@ function calculateDiscounts(item) {
     return discount;
 }
 
-// calculate the discount value of a given promotion
+/**
+ * Calculate the discount value of a given promotion for an item
+ * @param {*} promotion - type of promotion to be applied
+ * @param {*} item - a product in cart
+ * @returns discount price
+ */
 function applyPromotion(promotion, item) {
     let itemQty = parseInt(item.qty);
     let itemPrice = parseInt(item.price);
@@ -43,10 +56,8 @@ function applyPromotion(promotion, item) {
         case 'QTY_BASED_PRICE_OVERRIDE':
             promotionRequiredQty = parseInt(promotion.required_qty);
             promotionPrice = parseInt(promotion.price);
-            multiples = Math.trunc(itemQty / promotionRequiredQty);      
-            
+            multiples = Math.trunc(itemQty / promotionRequiredQty);
             const noPromotionPrice = itemPrice * promotionRequiredQty
-
             return (noPromotionPrice - promotionPrice) * multiples;
 
         case 'FLAT_PERCENT':

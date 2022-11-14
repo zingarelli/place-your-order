@@ -1,14 +1,23 @@
 import styles from './Cart.module.css';
 import { removeFromCart, updateCart } from '../../utils/cartUtils';
 
+/**
+ * Cart showing items selected by the user, with buttons to remove and manage the item's quantity
+ * @param {*} cart - array of products in cart
+ * @param {*} setCart - function to update cart 
+ * @returns a cart component
+ */
 function Cart({ cart, setCart }) {
 
+    // increase/decrease item's quantity 
+    // (or remove it from cart if quantity == 1 and it's a decrease operation)
     function handleItemUpdate(id, qty, increase = true) {
         (!increase && qty === 1) 
             ? setCart(removeFromCart(cart, id))
             : setCart(updateCart(cart, id, increase));
     }
 
+    // remove item from cart
     function handleItemRemoval(id) {
         setCart(removeFromCart(cart, id));
     }

@@ -3,14 +3,15 @@ import { addToCart } from '../../utils/cartUtils';
 import { penniesToPounds } from '../../utils/currencyUtils';
 
 /**
- * List of products available to be added to the cart
+ * List of products available in the Menu to be added to the cart
  * @param {*} products - array of products 
- * @param {*} cart - products in cart
+ * @param {*} cart - array of products in cart
  * @param {*} setCart - function to update cart 
  * @returns a list of products
  */
 function ProductsList({ products, cart, setCart }) {
     
+    // add a product to the cart
     function handleCartUpdate(id) {
         addToCart(cart, id)
             .then(cartUpdated => setCart(cartUpdated))

@@ -8,14 +8,7 @@ test('Checkout component renders', () => {
             name: "Amazing Burger!", 
             price: 999,
             qty: 1, 
-            promotions: [
-                {
-                    id: 0,
-                    type: "BUY_X_GET_Y_FREE",
-                    required_qty: 2,
-                    free_qty: 1
-                }
-            ]
+            promotions: [{id: 0, type: "BUY_X_GET_Y_FREE", required_qty: 2, free_qty: 1}]
         }
     ];
     const closeCheckout = jest.fn();
@@ -27,7 +20,7 @@ test('Checkout component renders', () => {
     expect(checkoutHeader).toBeInTheDocument();
 })
 
-// TODO: how to turn this test to be more generic and less hard-coded?
+// TODO: how to change this test to be more generic and less hard-coded?
 describe('When Checkout component renders', () => {
     beforeEach(() => {
         const cart = [
@@ -36,14 +29,7 @@ describe('When Checkout component renders', () => {
                 name: "Amazing Burger!", 
                 price: 999,
                 qty: 2, 
-                promotions: [
-                    {
-                        id: 0,
-                        type: "BUY_X_GET_Y_FREE",
-                        required_qty: 2,
-                        free_qty: 1
-                    }
-                ]
+                promotions: [{id: 0, type: "BUY_X_GET_Y_FREE", required_qty: 2, free_qty: 1}]
             }, 
             {
                 id: 1, 
