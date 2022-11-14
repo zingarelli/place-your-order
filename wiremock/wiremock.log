@@ -1,0 +1,104 @@
+2022-11-14 15:17:14.332 Verbose logging enabled
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2022-11-14 15:17:15.631 Verbose logging enabled
+ /$$      /$$ /$$                     /$$      /$$                     /$$      
+| $$  /$ | $$|__/                    | $$$    /$$$                    | $$      
+| $$ /$$$| $$ /$$  /$$$$$$   /$$$$$$ | $$$$  /$$$$  /$$$$$$   /$$$$$$$| $$   /$$
+| $$/$$ $$ $$| $$ /$$__  $$ /$$__  $$| $$ $$/$$ $$ /$$__  $$ /$$_____/| $$  /$$/
+| $$$$_  $$$$| $$| $$  \__/| $$$$$$$$| $$  $$$| $$| $$  \ $$| $$      | $$$$$$/ 
+| $$$/ \  $$$| $$| $$      | $$_____/| $$\  $ | $$| $$  | $$| $$      | $$_  $$ 
+| $$/   \  $$| $$| $$      |  $$$$$$$| $$ \/  | $$|  $$$$$$/|  $$$$$$$| $$ \  $$
+|__/     \__/|__/|__/       \_______/|__/     |__/ \______/  \_______/|__/  \__/
+
+port:                         8081
+enable-browser-proxying:      false
+no-request-journal:           false
+verbose:                      true
+
+2022-11-14 15:17:17.377 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 15:17:17.403 Request received:
+127.0.0.1 - GET /products
+
+Cookie: [io=Qn9jDxAF4WRzT-pDAAAT]
+sec-fetch-mode: [cors]
+sec-fetch-site: [same-origin]
+Accept: [*/*]
+X-Forwarded-Host: [localhost:3000]
+X-Forwarded-Proto: [http]
+Referer: [http://localhost:3000/]
+User-Agent: [Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0]
+Connection: [close]
+x-forwarded-port: [3000]
+Host: [localhost:8081]
+Accept-Encoding: [gzip, deflate, br]
+sec-ch-ua: ["Chromium";v="106", "Not.A/Brand";v="24", "Opera";v="92"]
+sec-ch-ua-mobile: [?0]
+sec-ch-ua-platform: ["Windows"]
+X-Forwarded-For: [127.0.0.1]
+Accept-Language: [pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7]
+sec-fetch-dest: [empty]
+Content-Type: [application/json]
+
+
+
+Matched response definition:
+{
+  "status" : 200,
+  "body" : "[{\"id\":\"Dwt5F7KAhi\",\"name\":\"Amazing Pizza!\",\"price\":1099},{\"id\":\"PWWe3w1SDU\",\"name\":\"Amazing Burger!\",\"price\":999},{\"id\":\"C8GDyLrHJb\",\"name\":\"Amazing Salad!\",\"price\":499},{\"id\":\"4MB7UfpTQs\",\"name\":\"Boring Fries!\",\"price\":199}]",
+  "headers" : {
+    "Content-Type" : "application/json",
+    "Access-Control-Allow-Origin" : "http://localhost:3000"
+  }
+}
+
+Response:
+HTTP/1.1 200
+Content-Type: [application/json]
+Access-Control-Allow-Origin: [http://localhost:3000]
+
+[{"id":"Dwt5F7KAhi","name":"Amazing Pizza!","price":1099},{"id":"PWWe3w1SDU","name":"Amazing Burger!","price":999},{"id":"C8GDyLrHJb","name":"Amazing Salad!","price":499},{"id":"4MB7UfpTQs","name":"Boring Fries!","price":199}]
+
+2022-11-14 15:17:25.797 Received request to /shutdown with body 
