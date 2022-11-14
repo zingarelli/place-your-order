@@ -1,3 +1,25 @@
+# TODO
+Answer questions
+
+Document components and utils
+
+Write a complete README
+
+Add wiremock to the project
+
+Simulate someone downloading, installing and running the project
+
+# Tests
+test(): receives two arguments: the name of the test and a callback function to implement what's going to be tested
+
+install recoil: manage global states of the app
+/state/atom.ts to represent the states
+/state/hook: folder to add files that will have hooks to change the states
+
+fireEvent: to trigger an event (.change(), .click(), etc)
+
+use jest.mock to mock stateful variables?
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
